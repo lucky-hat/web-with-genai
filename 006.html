@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人材Bot生成UI - 要件変更寛容度グラデーション</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .color-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .color-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .color-card.selected {
+            border-color: #667eea;
+            border-width: 3px;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+        }
+
+        .color-preview {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: white;
+        }
+
+        .type-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #2a5298;
+        }
+
+        .stance {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .behavior {
+            font-size: 0.8rem;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        .selected-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .selected-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .bot-preview {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .bot-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .bot-details {
+            text-align: center;
+        }
+
+        .bot-type {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #2a5298;
+        }
+
+        .bot-hex {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .bot-attrs {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .attr-row {
+            display: flex;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .attr-label {
+            font-weight: bold;
+            min-width: 140px;
+            color: #555;
+        }
+
+        .attr-value {
+            color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        button {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .phase-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧭 人材Bot生成UI</h1>
+            <p class="subtitle">要件追加・変更への寛容度グラデーション（00〜FF）</p>
+        </header>
+
+        <div class="main-content">
+            <div class="color-map" id="colorMap"></div>
+
+            <div class="selected-section">
+                <h2 class="selected-title">選択中の人材Bot</h2>
+                <div id="botPreview" class="empty-state">
+                    カラーカードを選択してBotを生成してください
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="generateBot()" id="generateBtn" disabled>Botを生成</button>
+                <button class="btn-secondary" onclick="resetSelection()">リセット</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const colorData = [
+            {
+                hex: 'FF',
+                type: '創発者（Originator）',
+                stance: '要件追加を奨励',
+                behavior: '「もっと面白くできる」思いつきを即座に仕様に反映',
+                phase: '0→1フェーズ、R&D',
+                emoji: '💡'
+            },
+            {
+                hex: 'E0',
+                type: '拡張者（Expander）',
+                stance: '積極的受容',
+                behavior: '新しい要件を歓迎し、構造に取り込む',
+                phase: 'コンセプト設計、PoC',
+                emoji: '🚀'
+            },
+            {
+                hex: 'C0',
+                type: '試行者（Experimenter）',
+                stance: '柔軟対応',
+                behavior: '「まず試してから決めよう」',
+                phase: '試験運用、仮説検証',
+                emoji: '🧪'
+            },
+            {
+                hex: 'A0',
+                type: '適応者（Adapter）',
+                stance: '条件付き受容',
+                behavior: '優先順位を考慮しながら新要件を統合',
+                phase: 'プロトタイプ開発',
+                emoji: '🔄'
+            },
+            {
+                hex: '80',
+                type: '実装者（Implementer）',
+                stance: '慎重受容',
+                behavior: 'スコープ影響を精査しつつ変更を許容',
+                phase: 'MVP構築',
+                emoji: '⚙️'
+            },
+            {
+                hex: '60',
+                type: '安定化者（Stabilizer）',
+                stance: '部分受容',
+                behavior: '品質維持の範囲内で変更可',
+                phase: '検証・QA段階',
+                emoji: '🛡️'
+            },
+            {
+                hex: '40',
+                type: '最適化者（Optimizer）',
+                stance: '消極的受容',
+                behavior: '「必要なら仕方ない」レベルで対応',
+                phase: '運用立ち上げ',
+                emoji: '📊'
+            },
+            {
+                hex: '20',
+                type: '守護者（Guardian）',
+                stance: '基本拒否',
+                behavior: '「スコープ変更はリスク」',
+                phase: '運用フェーズ',
+                emoji: '🔒'
+            },
+            {
+                hex: '00',
+                type: '完遂者（Finalizer）',
+                stance: '完全拒否',
+                behavior: '「今は変えない。やると壊れる」',
+                phase: '安定運用、製造ライン',
+                emoji: '✅'
+            }
+        ];
+
+        let selectedBot = null;
+
+        function getGradientColor(hex) {
+            const value = parseInt(hex, 16);
+            const hue = (value / 255) * 120; // 0 (red) to 120 (green)
+            return `hsl(${hue}, 70%, 50%)`;
+        }
+
+        function renderColorMap() {
+            const colorMap = document.getElementById('colorMap');
+            colorMap.innerHTML = colorData.map((data, index) => `
+                <div class="color-card" onclick="selectBot(${index})">
+                    <div class="color-preview" style="background: ${getGradientColor(data.hex)}">
+                        ${data.emoji} ${data.hex}
+                    </div>
+                    <div class="color-info">
+                        <div class="type-name">${data.type}</div>
+                        <div class="stance">${data.stance}</div>
+                        <div class="behavior">${data.behavior}</div>
+                        <span class="phase-badge">${data.phase}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectBot(index) {
+            selectedBot = colorData[index];
+
+            // Update card selection visual
+            document.querySelectorAll('.color-card').forEach((card, i) => {
+                if (i === index) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+
+            // Update preview
+            const preview = document.getElementById('botPreview');
+            preview.innerHTML = `
+                <div class="bot-preview">
+                    <div class="bot-avatar" style="background: ${getGradientColor(selectedBot.hex)}">
+                        ${selectedBot.emoji}
+                    </div>
+                    <div class="bot-details">
+                        <div class="bot-type">${selectedBot.type}</div>
+                        <div class="bot-hex">HEX: #${selectedBot.hex}</div>
+
+                        <div class="bot-attrs">
+                            <div class="attr-row">
+                                <span class="attr-label">スタンス:</span>
+                                <span class="attr-value">${selectedBot.stance}</span>
+                            </div>
+                            <div class="attr-row">
+                                <span class="attr-label">典型的行動:</span>
+                                <span class="attr-value">${selectedBot.behavior}</span>
+                            </div>
+                            <div class="attr-row">
+                                <span class="attr-label">フェーズ適性:</span>
+                                <span class="attr-value">${selectedBot.phase}</span>
+                            </div>
+                            <div class="attr-row">
+                                <span class="attr-label">寛容度レベル:</span>
+                                <span class="attr-value">${Math.round((parseInt(selectedBot.hex, 16) / 255) * 100)}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('generateBtn').disabled = false;
+        }
+
+        function generateBot() {
+            if (!selectedBot) return;
+
+            alert(`🤖 Bot生成完了！\n\n` +
+                  `タイプ: ${selectedBot.type}\n` +
+                  `寛容度: ${selectedBot.hex}\n` +
+                  `スタンス: ${selectedBot.stance}\n\n` +
+                  `このBotはプロジェクトの「${selectedBot.phase}」フェーズに最適です。`);
+        }
+
+        function resetSelection() {
+            selectedBot = null;
+            document.querySelectorAll('.color-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            document.getElementById('botPreview').innerHTML = `
+                <div class="empty-state">
+                    カラーカードを選択してBotを生成してください
+                </div>
+            `;
+            document.getElementById('generateBtn').disabled = true;
+        }
+
+        // Initialize
+        renderColorMap();
+    </script>
+</body>
+</html>
