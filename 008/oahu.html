@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oahu - AI Agent Development Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007bff",
+                        "background-light": "#f8f9fa",
+                        "background-dark": "#101922",
+                        "text-light": "#212529",
+                        "text-dark": "#f8f9fa",
+                        "accent": "#00bfff",
+                        "border-light": "#dee2e6",
+                        "border-dark": "#343a40",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2632"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans JP", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center p-4 pb-2 justify-between sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-10">
+<div class="text-text-light dark:text-text-dark flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">widgets</span>
+</div>
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Oahu</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-text-light dark:text-text-dark gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="p-4">
+<div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-6 pb-10" data-alt="Abstract neural network graphic" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 31, 63, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSZEjzV-x_gOpYa9n1mdZhSy-GTVaEgHRzhMMIApUIn7Nl6xC5D1g6zsM1ist5dHZlK1IFRkvxOr1dquDOjUd_0zWX4DhvTlErNFvHoewNjleynOO5nUWwXFTqlzZTNrlSCSEKPGbYDjnxEH2CecdrxbvM8cAhCsBg1WNjwJrj9LMDVhNj4YMEQepuLNkQAZ6AoGggTbP00P8CqKP37hfbIpF5a5XgvWZZvfR9Xy9EEhZwc8n15Zdk00bpg8pxD_Ir-bq-ozkBag");'>
+<div class="flex flex-col gap-2 text-left">
+<h1 class="text-white text-3xl font-extrabold leading-tight tracking-[-0.033em]">
+                            次世代AIエージェント開発を、その手に。Oahuで思考するAIを創造する。
+                        </h1>
+<h2 class="text-slate-200 text-sm font-normal leading-normal">
+                            SalesforceやAWSのような信頼性と拡張性を備えた、エンタープライズ向けAI開発プラットフォーム。
+                        </h2>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-10 px-4 py-10 @container">
+<div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 p-0">
+<div class="flex flex-1 gap-3 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 flex-col shadow-sm">
+<div class="text-accent">
+<span class="material-symbols-outlined text-3xl">design_services</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-text-light dark:text-text-dark text-base font-bold leading-tight">直感的な設計環境</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">ノーコード/ローコードで複雑なエージェントを構築。</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 flex-col shadow-sm">
+<div class="text-accent">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-text-light dark:text-text-dark text-base font-bold leading-tight">強力な統合機能</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">既存のシステムや多様なデータソースとシームレスに連携。</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 flex-col shadow-sm">
+<div class="text-accent">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-text-light dark:text-text-dark text-base font-bold leading-tight">継続的学習と進化</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">自己改善を続ける「継続的思考型AI」を実現。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 px-4 py-5">
+<div class="flex flex-col gap-3">
+<details class="flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark px-[15px] py-[7px] group shadow-sm" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-3 transition-colors duration-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 -mx-[15px] px-[15px] rounded-t-lg">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">具体的な機能</p>
+<div class="text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 pb-2">
+<div class="w-full grow aspect-[16/9] rounded-lg bg-cover bg-center" data-alt="A simple diagram showing API integration" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABrC0mZy5nhu4PhTAUMDXonVxPdt-CY3HnvwvumYZqMql7GDqRLdosRZMOty9vhATKBjZWtivSVrispgQyCTo9aWj_w2Ch_c8tUlfJOz0KaDzDDalE1uh8WnKN_ESOrpF9mkO0aSXnjdDF-ec60KWUzQGNnbWY0S_T96IEXtUND3BbqU__S_JnIfc5eL36oPN4-dXuQkzU3HGLSzGk-uAx7gDqG8RcTp0PR2H2V-PZu_aMJ29tqQ7psEnAugRkLuzCiezvSqMGRg");'></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal pt-4">API連携、データ処理、自然言語理解、マルチモーダル対応などの機能リストを箇条書きで紹介。</p>
+</div>
+</details>
+<details class="flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark px-[15px] py-[7px] group shadow-sm">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-3 transition-colors duration-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 -mx-[15px] px-[15px] rounded-lg group-open:rounded-b-none">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">エージェント設計環境</p>
+<div class="text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 pb-2">
+<div class="w-full grow aspect-[16/9] rounded-lg bg-cover bg-center" data-alt="A flow chart of the agent design environment" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAf94wmSobBCPcdeMTf4Ck0afRYAvQDj0DrSMJehfq9if_cmo3X_n68pXMP-FPlwVIdd5jUcGkNh1W2n3H9tFysRto0k0-lT5fsoAyVr52B-yvT6BCd2U_VElk7HDSuQMC9H2ZJHHCjDoSL_T4E9iuNCJ7dMUGrcf_4viq6WYMBZ6G6Rs1-JSI1BtPn4wzpq3To40fLWfRvw2aBuurEwZSlqjZ0zjRWfLiaMTgzhcUfB1COLiftz_uFaClGgb9uYLOITa51L456XA");'></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal pt-4">ビジュアルフローエディタやデバッグツールなど、開発者体験の良さをアピールする内容。</p>
+</div>
+</details>
+<details class="flex flex-col rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark px-[15px] py-[7px] group shadow-sm">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-3 transition-colors duration-200 hover:bg-slate-50 dark:hover:bg-slate-800/50 -mx-[15px] px-[15px] rounded-lg group-open:rounded-b-none">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">継続的思考型AIへの進化</p>
+<div class="text-text-light dark:text-text-dark group-open:rotate-180 transition-transform">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="pt-4 pb-2">
+<div class="w-full grow aspect-[16/9] rounded-lg bg-cover bg-center" data-alt="An abstract animation of an evolving AI" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBagrzCT1aWzXZwzuwKeguwG9TO-01gP2JhKKyuYfjg2yA-XQ7zwcnuNjfASspcUjvXnSCvPRVuQRGlesfi9YOL_xZkvSoI14rWZ5KsNvTL8S4YFLchjgr4VfEV9QsJawb1Pt7hNDxdKKE2hGZ2NkY_gr0NAqlKTIbhYMP9I1ec6KWmb08e_KHzr0E_GxQYLId2bHeLPl4gloowbU37oWb-XT0VgwiTpyHthy3mbCkK9U1Lqfl8Pfo0KGnMA4hRQI82iTDVS612yA");'></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal pt-4">OahuがどのようにしてAIを自己進化させるのか、その概念やアーキテクチャの概要をシンプルな図と共に説明。</p>
+</div>
+</details>
+</div>
+</div>
+<div class="sticky bottom-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 mt-8">
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30 hover:bg-blue-600 transition-colors">
+<span class="truncate">デモを体験する</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
