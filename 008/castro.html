@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oahu System Automation Process</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+            "text-light": "#1C1C1C",
+            "text-dark": "#f6f7f8",
+            "subtext-light": "#4c739a",
+            "subtext-dark": "#94a3b8",
+            "border-light": "#cfdbe7",
+            "border-dark": "#334155",
+            "button-secondary-bg-light": "#e7edf3",
+            "button-secondary-bg-dark": "#1e293b",
+            "button-secondary-text-light": "#0d141b",
+            "button-secondary-text-dark": "#f8fafc"
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="text-text-light dark:text-text-dark flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">自動化プロセス</h2>
+<div class="flex size-12 shrink-0 items-center"></div>
+</div>
+<main class="flex-1">
+<h1 class="text-text-light dark:text-text-dark tracking-tight text-[32px] font-bold leading-tight px-4 text-left pb-3 pt-6">コンセプトから実装までの自動化プロセス</h1>
+<p class="text-text-light dark:text-text-dark text-base font-normal leading-normal pb-3 pt-1 px-4">OahuシステムがどのようにAIを活用し、アイデアを現実のシステムへとシームレスに変換するかをご紹介します。</p>
+<div class="grid grid-cols-[40px_1fr] gap-x-2 px-4 mt-8">
+<div class="flex flex-col items-center gap-1 pt-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-2xl">lightbulb</span>
+</div>
+<div class="w-[1.5px] bg-border-light dark:bg-border-dark h-full grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Concept Definition</p>
+<p class="text-subtext-light dark:text-subtext-dark text-base font-normal leading-normal">AIが要件を分析・整理。</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-[1.5px] bg-border-light dark:bg-border-dark h-full grow"></div>
+<div class="text-primary">
+<span class="material-symbols-outlined text-2xl">architecture</span>
+</div>
+<div class="w-[1.5px] bg-border-light dark:bg-border-dark h-full grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Blueprint Design</p>
+<p class="text-subtext-light dark:text-subtext-dark text-base font-normal leading-normal">AIが最適なアーキテクチャを提案。</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-[1.5px] bg-border-light dark:bg-border-dark h-full grow"></div>
+<div class="text-primary">
+<span class="material-symbols-outlined text-2xl">share_location</span>
+</div>
+<div class="w-[1.5px] bg-border-light dark:bg-border-dark h-full grow"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">System Mapping</p>
+<p class="text-subtext-light dark:text-subtext-dark text-base font-normal leading-normal">AIがコンポーネントをマッピング。</p>
+</div>
+<div class="flex flex-col items-center gap-1 pb-3">
+<div class="w-[1.5px] bg-border-light dark:bg-border-dark h-full"></div>
+<div class="text-primary">
+<span class="material-symbols-outlined text-2xl">terminal</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Implementation</p>
+<p class="text-subtext-light dark:text-subtext-dark text-base font-normal leading-normal">AIが実装プロセスを監督・実行。</p>
+</div>
+</div>
+</main>
+<div class="flex justify-center mt-auto pt-8 pb-4 bg-background-light dark:bg-background-dark">
+<div class="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-4 py-3">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] w-full">
+<span class="truncate">デモをリクエストする</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-button-secondary-bg-light dark:bg-button-secondary-bg-dark text-button-secondary-text-light dark:text-button-secondary-text-dark text-base font-bold leading-normal tracking-[0.015em] w-full">
+<span class="truncate">資料をダウンロード</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
